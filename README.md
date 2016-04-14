@@ -1,4 +1,4 @@
-# Docbox :blue_book:
+# Arches Docs - powered by Docbox :blue_book:
 
 [![Circle CI](https://circleci.com/gh/mapbox/docbox.svg?style=svg)](https://circleci.com/gh/mapbox/docbox)
 
