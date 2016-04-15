@@ -5,21 +5,21 @@
  * media queries.
  */
 module.exports.brandNames = {
-  desktop: 'Wobble API Documentation',
-  tablet: 'Wobble API Docs',
-  mobile: 'API Docs'
+  desktop: 'Arches Documentation',
+  tablet: 'Arches Docs',
+  mobile: 'Arches Docs'
 };
 
 /**
  * Classes that define the top-left brand box.
  */
-module.exports.brandClasses = 'fill-red';
+module.exports.brandClasses = 'arches-logo';
 
 
 /**
  * Text for the link back to the linking website.
  */
-module.exports.backLink = 'Back to wobbles.com';
+module.exports.backLink = 'Back to archesproject.org';
 
 /**
  * Runs after highlighting code samples. You can use this

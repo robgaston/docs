@@ -10,245 +10,109 @@
     <link href='css/railscasts.css' rel='stylesheet' />
   </head>
   <body>
-    <!--START--><div id='app'><div class="container unlimiter" data-reactid=".1vshckzfp4w" data-react-checksum="438757282"><div class="fixed-top fixed-right space-left16" data-reactid=".1vshckzfp4w.0"><div class="fill-light col6 pin-right" data-reactid=".1vshckzfp4w.0.0"></div></div><div class="space-top5 scroll-styled pad1 width16 sidebar fixed-left fill-dark dark" data-reactid=".1vshckzfp4w.1"><div class="pad0x small" data-reactid=".1vshckzfp4w.1.0"><div class="small pad0x quiet space-top1" data-reactid=".1vshckzfp4w.1.0.0:$0">Introduction</div><a href="#our-api" class="line-height15 pad0x pad00y quiet block " data-reactid=".1vshckzfp4w.1.0.0:$1">Our API</a><div class="small pad0x quiet space-top1" data-reactid=".1vshckzfp4w.1.0.0:$2">Example</div><a href="#wobble" class="line-height15 pad0x pad00y quiet block " data-reactid=".1vshckzfp4w.1.0.0:$3">Wobble</a><a href="/" class="space-top2 pad1y dark keyline-top block small quiet" data-reactid=".1vshckzfp4w.1.0.1">Back to wobbles.com</a></div></div><div class="space-left16" data-reactid=".1vshckzfp4w.2"><div class="" data-reactid=".1vshckzfp4w.2.0"><div class="clearfix" data-reactid=".1vshckzfp4w.2.0.0"><div data-title="Our API" class="keyline-top section contain clearfix " data-reactid=".1vshckzfp4w.2.0.0.$0"><div class="space-bottom8 col6 pad2x prose clip" data-reactid=".1vshckzfp4w.2.0.0.$0.0"><h2 id="our-api">Our API</h2>
-<p>Welcome to coolcorp biz! This is our API documentation.</p>
-</div></div><div data-title="Wobble" class="keyline-top section contain clearfix " data-reactid=".1vshckzfp4w.2.0.0.$1"><div class="space-bottom8 col6 pad2x prose clip" data-reactid=".1vshckzfp4w.2.0.0.$1.0"><h2 id="wobble">Wobble</h2>
-<p>This is our high-quality wobbles API. You can use this API to request
-and remove different wobbles at a low wibble price.</p>
-</div></div><div data-title="List wobbles" class="keyline-top section contain clearfix " data-reactid=".1vshckzfp4w.2.0.0.$2"><div class="space-bottom8 col6 pad2x prose clip" data-reactid=".1vshckzfp4w.2.0.0.$2.0"><h3 id="list-wobbles">List wobbles</h3>
-<p>Lists all wobbles for a particular account.</p>
-</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid=".1vshckzfp4w.2.0.0.$2.1"><div class='endpoint dark fill-dark round '>
-      <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>GET</div>
-      <div class='pad0 code small endpoint-url'>/wobbles/v1/<span class="strong">{username}</span></div>
-    </div>
-<h4 id="example-request">Example request</h4>
-<pre><code class="hljs">$ curl https://wobble.biz/wobbles/v1/{username}</code></pre>
-<h4 id="example-response">Example response</h4>
-<pre><code class="hljs">[
-  {
-    <span class="hljs-attr">"owner"</span>: <span class="hljs-string">"{username}"</span>,
-    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"{wobble_id}"</span>,
-    <span class="hljs-attr">"created"</span>: <span class="hljs-string">"{timestamp}"</span>,
-    <span class="hljs-attr">"modified"</span>: <span class="hljs-string">"{timestamp}"</span>
-  },
-  {
-    <span class="hljs-attr">"owner"</span>: <span class="hljs-string">"{username}"</span>,
-    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"{wobble_id}"</span>,
-    <span class="hljs-attr">"created"</span>: <span class="hljs-string">"{timestamp}"</span>,
-    <span class="hljs-attr">"modified"</span>: <span class="hljs-string">"{timestamp}"</span>
-  }
-]</code></pre>
-</div></div><div data-title="Create wobble" class="keyline-top section contain clearfix " data-reactid=".1vshckzfp4w.2.0.0.$3"><div class="space-bottom8 col6 pad2x prose clip" data-reactid=".1vshckzfp4w.2.0.0.$3.0"><h3 id="create-wobble">Create wobble</h3>
-<p>Creates a new, empty wobble.</p>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>name</code></td>
-<td>(optional) the name of the wobble</td>
-</tr>
-<tr>
-<td><code>description</code></td>
-<td>(optional) a description of the wobble</td>
-</tr>
-</tbody>
-</table>
-</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid=".1vshckzfp4w.2.0.0.$3.1"><div class='endpoint dark fill-dark round '>
-      <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>POST</div>
-      <div class='pad0 code small endpoint-url'>/wobbles/v1/<span class="strong">{username}</span></div>
-    </div>
-<h4 id="example-request-1">Example request</h4>
-<pre><code class="hljs">curl -X POST https://wobble.biz/wobbles/v1/{username}</code></pre>
-<h4 id="example-request-body">Example request body</h4>
-<pre><code class="hljs">{
-  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"foo"</span>,
-  <span class="hljs-attr">"description"</span>: <span class="hljs-string">"bar"</span>
-}</code></pre>
-<h4 id="example-response-1">Example response</h4>
-<pre><code class="hljs">{
-  <span class="hljs-attr">"owner"</span>: <span class="hljs-string">"{username}"</span>,
-  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"{wobble_id}"</span>,
-  <span class="hljs-attr">"name"</span>: <span class="hljs-literal">null</span>,
-  <span class="hljs-attr">"description"</span>: <span class="hljs-literal">null</span>,
-  <span class="hljs-attr">"created"</span>: <span class="hljs-string">"{timestamp}"</span>,
-  <span class="hljs-attr">"modified"</span>: <span class="hljs-string">"{timestamp}"</span>
-}</code></pre>
-</div></div><div data-title="Retrieve a wobble" class="keyline-top section contain clearfix " data-reactid=".1vshckzfp4w.2.0.0.$4"><div class="space-bottom8 col6 pad2x prose clip" data-reactid=".1vshckzfp4w.2.0.0.$4.0"><h3 id="retrieve-a-wobble">Retrieve a wobble</h3>
-<p>Returns a single wobble.</p>
-<p>Retrieve information about an existing wobble.</p>
-</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid=".1vshckzfp4w.2.0.0.$4.1"><div class='endpoint dark fill-dark round '>
-      <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>GET</div>
-      <div class='pad0 code small endpoint-url'>/wobbles/v1/<span class="strong">{username}</span>/<span class="strong">{wobble_id}</span></div>
-    </div>
-<h4 id="example-request-2">Example request</h4>
-<pre><code class="hljs">curl https://wobble.biz/wobbles/v1/{username}/{wobble_id}</code></pre>
-<h4 id="example-response-2">Example response</h4>
-<pre><code class="hljs">{
-  <span class="hljs-attr">"owner"</span>: <span class="hljs-string">"{username}"</span>,
-  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"{wobble_id}"</span>,
-  <span class="hljs-attr">"created"</span>: <span class="hljs-string">"{timestamp}"</span>,
-  <span class="hljs-attr">"modified"</span>: <span class="hljs-string">"{timestamp}"</span>
-}</code></pre>
-</div></div><div data-title="Update a wobble" class="keyline-top section contain clearfix " data-reactid=".1vshckzfp4w.2.0.0.$5"><div class="space-bottom8 col6 pad2x prose clip" data-reactid=".1vshckzfp4w.2.0.0.$5.0"><h3 id="update-a-wobble">Update a wobble</h3>
-<p>Updates the properties of a particular wobble.</p>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>name</code></td>
-<td>(optional) the name of the wobble</td>
-</tr>
-<tr>
-<td><code>description</code></td>
-<td>(optional) a description of the wobble</td>
-</tr>
-</tbody>
-</table>
-</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid=".1vshckzfp4w.2.0.0.$5.1"><div class='endpoint dark fill-dark round '>
-      <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>PATCH</div>
-      <div class='pad0 code small endpoint-url'>/wobbles/v1/<span class="strong">{username}</span>/<span class="strong">{wobble_id}</span></div>
-    </div>
-<h4 id="example-request-3">Example request</h4>
-<pre><code class="hljs">curl --request PATCH https://wobble.biz/wobbles/v1/{username}/{wobble_id} \
-  <span class="hljs-_">-d</span> @data.json</code></pre>
-<h4 id="example-request-body-1">Example request body</h4>
-<pre><code class="hljs">{
-  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"foo"</span>,
-  <span class="hljs-attr">"description"</span>: <span class="hljs-string">"bar"</span>
-}</code></pre>
-<h4 id="example-response-3">Example response</h4>
-<pre><code class="hljs">{
-  <span class="hljs-attr">"owner"</span>: <span class="hljs-string">"{username}"</span>,
-  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"{wobble_id}"</span>,
-  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"foo"</span>,
-  <span class="hljs-attr">"description"</span>: <span class="hljs-string">"bar"</span>,
-  <span class="hljs-attr">"created"</span>: <span class="hljs-string">"{timestamp}"</span>,
-  <span class="hljs-attr">"modified"</span>: <span class="hljs-string">"{timestamp}"</span>
-}</code></pre>
-</div></div><div data-title="Delete a wobble" class="keyline-top section contain clearfix " data-reactid=".1vshckzfp4w.2.0.0.$6"><div class="space-bottom8 col6 pad2x prose clip" data-reactid=".1vshckzfp4w.2.0.0.$6.0"><h3 id="delete-a-wobble">Delete a wobble</h3>
-<p>Deletes a wobble, including all wibbles it contains.</p>
-</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid=".1vshckzfp4w.2.0.0.$6.1"><div class='endpoint dark fill-dark round '>
-      <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>DELETE</div>
-      <div class='pad0 code small endpoint-url'>/wobbles/v1/<span class="strong">{username}</span>/<span class="strong">{wobble_id}</span></div>
-    </div>
-<h4 id="example-request-4">Example request</h4>
-<pre><code class="hljs">curl -X DELETE https://wobble.biz/wobbles/v1/{username}/{wobble_id}</code></pre>
-<h4 id="example-response-4">Example response</h4>
-<blockquote>
-<p>HTTP 204</p>
-</blockquote>
-</div></div><div data-title="List wibbles" class="keyline-top section contain clearfix " data-reactid=".1vshckzfp4w.2.0.0.$7"><div class="space-bottom8 col6 pad2x prose clip" data-reactid=".1vshckzfp4w.2.0.0.$7.0"><h3 id="list-wibbles">List wibbles</h3>
-<p>List all the wibbles in a wobble. The response body will be a
-WobbleCollection.</p>
-</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid=".1vshckzfp4w.2.0.0.$7.1"><div class='endpoint dark fill-dark round '>
-      <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>GET</div>
-      <div class='pad0 code small endpoint-url'>/wobbles/v1/<span class="strong">{username}</span>/<span class="strong">{wobble_id}</span>/wibbles</div>
-    </div>
-<h4 id="example-request-5">Example request</h4>
-<pre><code class="hljs">curl https://wobble.biz/wobbles/v1/{username}/{wobble_id}/wibbles</code></pre>
-<h4 id="example-response-5">Example response</h4>
-<pre><code class="hljs">{
-  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Wobble"</span>,
-  <span class="hljs-attr">"wibbles"</span>: [
-    {
-      <span class="hljs-attr">"id"</span>: <span class="hljs-string">"{wibble_id}"</span>,
-      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Wobble"</span>,
-      <span class="hljs-attr">"properties"</span>: {
-        <span class="hljs-attr">"prop0"</span>: <span class="hljs-string">"value0"</span>
-      }
-    },
-    {
-      <span class="hljs-attr">"id"</span>: <span class="hljs-string">"{wibble_id}"</span>,
-      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Wobble"</span>,
-      <span class="hljs-attr">"properties"</span>: {
-        <span class="hljs-attr">"prop0"</span>: <span class="hljs-string">"value0"</span>
-      }
-    }
-  ]
-}</code></pre>
-</div></div><div data-title="Insert or update a wibble" class="keyline-top section contain clearfix " data-reactid=".1vshckzfp4w.2.0.0.$8"><div class="space-bottom8 col6 pad2x prose clip" data-reactid=".1vshckzfp4w.2.0.0.$8.0"><h3 id="insert-or-update-a-wibble">Insert or update a wibble</h3>
-<p>Inserts or updates a wibble in a wobble. If there&#x27;s already a wibble
-with the given ID in the wobble, it will be replaced. If there isn&#x27;t
-a wibble with that ID, a new wibble is created.</p>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>id</code></td>
-<td>the id of an existing wibble in the wobble</td>
-</tr>
-</tbody>
-</table>
-</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid=".1vshckzfp4w.2.0.0.$8.1"><div class='endpoint dark fill-dark round '>
-      <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>PUT</div>
-      <div class='pad0 code small endpoint-url'>/wobbles/v1/<span class="strong">{username}</span>/<span class="strong">{wobble_id}</span>/wibbles/<span class="strong">{wibble_id}</span></div>
-    </div>
-<h4 id="example-request-6">Example request</h4>
-<pre><code class="hljs">curl https://wobble.biz/wobbles/v1/{username}/{wobble_id}/wibbles/{wibble_id} \
-  -X PUT \
-  <span class="hljs-_">-d</span> @file.geojson</code></pre>
-<h4 id="example-request-body-2">Example request body</h4>
-<pre><code class="hljs">{
-  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"{wibble_id}"</span>,
-  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Wobble"</span>,
-  <span class="hljs-attr">"properties"</span>: {
-    <span class="hljs-attr">"prop0"</span>: <span class="hljs-string">"value0"</span>
-  }
-}</code></pre>
-<h4 id="example-response-6">Example response</h4>
-<pre><code class="hljs">{
-  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"{wibble_id}"</span>,
-  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Wobble"</span>,
-  <span class="hljs-attr">"properties"</span>: {
-    <span class="hljs-attr">"prop0"</span>: <span class="hljs-string">"value0"</span>
-  }
-}</code></pre>
-</div></div><div data-title="Retrieve a wibble" class="keyline-top section contain clearfix " data-reactid=".1vshckzfp4w.2.0.0.$9"><div class="space-bottom8 col6 pad2x prose clip" data-reactid=".1vshckzfp4w.2.0.0.$9.0"><h3 id="retrieve-a-wibble">Retrieve a wibble</h3>
-<p>Retrieves a wibble in a wobble.</p>
-</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid=".1vshckzfp4w.2.0.0.$9.1"><div class='endpoint dark fill-dark round '>
-      <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>GET</div>
-      <div class='pad0 code small endpoint-url'>/wobbles/v1/<span class="strong">{username}</span>/<span class="strong">{wobble_id}</span>/wibbles/<span class="strong">{wibble_id}</span></div>
-    </div>
-<h4 id="example-request-7">Example request</h4>
-<pre><code class="hljs">curl https://wobble.biz/wobbles/v1/{username}/{wobble_id}/wibbles/{wibble_id}</code></pre>
-<h4 id="example-response-7">Example response</h4>
-<pre><code class="hljs">{
-  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"{wibble_id}"</span>,
-  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Wobble"</span>,
-  <span class="hljs-attr">"properties"</span>: {
-    <span class="hljs-attr">"prop0"</span>: <span class="hljs-string">"value0"</span>
-  }
-}</code></pre>
-</div></div><div data-title="Delete a wibble" class="keyline-top section contain clearfix " data-reactid=".1vshckzfp4w.2.0.0.$10"><div class="space-bottom8 col6 pad2x prose clip" data-reactid=".1vshckzfp4w.2.0.0.$10.0"><h3 id="delete-a-wibble">Delete a wibble</h3>
-<p>Removes a wibble from a wobble.</p>
-</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid=".1vshckzfp4w.2.0.0.$10.1"><div class='endpoint dark fill-dark round '>
-      <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>DELETE</div>
-      <div class='pad0 code small endpoint-url'>/wobbles/v1/<span class="strong">{username}</span>/<span class="strong">{wobble_id}</span>/wibbles/<span class="strong">{wibble_id}</span></div>
-    </div>
-<h4 id="example-request-8">Example request</h4>
-<pre><code class="hljs">curl -X DELETE https://wobble.biz/wobbles/v1/{username}/{wobble_id}/wibbles/{wibble_id}</code></pre>
-<h4 id="example-response-8">Example response</h4>
-<blockquote>
-<p>HTTP 204</p>
-</blockquote>
-</div></div></div></div></div><div class="fixed-top space-left16" data-reactid=".1vshckzfp4w.3"><div class="events fill-light bottom-shadow pad1 col6 pin-topright  " data-reactid=".1vshckzfp4w.3.0"><div class="space-right1 small quiet inline" data-reactid=".1vshckzfp4w.3.0.0">Show examples in:</div><div class="rounded-toggle inline short" data-reactid=".1vshckzfp4w.3.0.1"><a class="strong active" data-reactid=".1vshckzfp4w.3.0.1.$cURL">cURL</a><a class="strong " data-reactid=".1vshckzfp4w.3.0.1.$CLI">CLI</a><a class="strong " data-reactid=".1vshckzfp4w.3.0.1.$Python">Python</a><a class="strong " data-reactid=".1vshckzfp4w.3.0.1.$JavaScript">JavaScript</a></div><div class="fr pad0" data-reactid=".1vshckzfp4w.3.0.2"><a title="Display as 1 column" style="cursor:pointer;" class="icon quiet caret-left pad0 fill-darken0 round" data-reactid=".1vshckzfp4w.3.0.2.0"></a></div></div></div><div class="fill-dark dark bottom-shadow fixed-top pad0 width16" data-reactid=".1vshckzfp4w.4"><a href="/" class="active space-top1 space-left1 pin-topleft icon round dark pad0 fill-red" data-reactid=".1vshckzfp4w.4.0"></a><div class="strong small pad0
+    <!--START--><div id='app'><div class="container unlimiter" data-reactid=".15i3bg6u96o" data-react-checksum="-1861748069"><div class="fixed-top fixed-right space-left16" data-reactid=".15i3bg6u96o.0"><div class="fill-light col6 pin-right" data-reactid=".15i3bg6u96o.0.0"></div></div><div class="space-top5 scroll-styled pad1 width16 sidebar fixed-left fill-dark dark" data-reactid=".15i3bg6u96o.1"><div class="pad0x small" data-reactid=".15i3bg6u96o.1.0"><div class="small pad0x quiet space-top1" data-reactid=".15i3bg6u96o.1.0.0:$0">Introduction</div><a href="#arches-build-status-coverage-status" class="line-height15 pad0x pad00y quiet block " data-reactid=".15i3bg6u96o.1.0.0:$1">Arches </a><a href="#system-requirements" class="line-height15 pad0x pad00y quiet block " data-reactid=".15i3bg6u96o.1.0.0:$2">System Requirements</a><a href="#dependencies" class="line-height15 pad0x pad00y quiet block " data-reactid=".15i3bg6u96o.1.0.0:$3">Dependencies</a><a href="#installing-arches" class="line-height15 pad0x pad00y quiet block " data-reactid=".15i3bg6u96o.1.0.0:$4">Installing Arches</a><a href="#arches-applications" class="line-height15 pad0x pad00y quiet block " data-reactid=".15i3bg6u96o.1.0.0:$5">Arches Applications</a><a href="#contributing" class="line-height15 pad0x pad00y quiet block " data-reactid=".15i3bg6u96o.1.0.0:$6">Contributing</a><a href="/" class="space-top2 pad1y dark keyline-top block small quiet" data-reactid=".15i3bg6u96o.1.0.1">Back to archesproject.org</a></div></div><div class="space-left16" data-reactid=".15i3bg6u96o.2"><div class="" data-reactid=".15i3bg6u96o.2.0"><div class="clearfix" data-reactid=".15i3bg6u96o.2.0.0"><div data-title="Arches " class="keyline-top section contain clearfix " data-reactid=".15i3bg6u96o.2.0.0.$0"><div class="space-bottom8 col6 pad2x prose clip" data-reactid=".15i3bg6u96o.2.0.0.$0.0"><h2 id="arches-build-status-coverage-status">Arches <a href="https://travis-ci.org/archesproject/arches"><img src="https://travis-ci.org/archesproject/arches.svg?branch=master" alt="Build Status"></a> <a href="https://coveralls.io/github/archesproject/arches?branch=master"><img src="https://coveralls.io/repos/github/archesproject/arches/badge.svg?branch=master" alt="Coverage Status"></a></h2>
+<p>A web-based, geospatial information system for cultural heritage inventory and management.</p>
+<p>Arches is purpose-built for the international cultural heritage field, and it is designed to record all types of immovable heritage, including archaeological sites, buildings and other historic structures, landscapes, and heritage ensembles or districts.</p>
+<p>Please see the <a href="http://archesproject.org/">project page</a> for more information on the Arches project.</p>
+<p>The Arches Installation Guide and Arches User Guide are available <a href="http://archesproject.org/documentation/">here</a>.</p>
+</div></div><div data-title="System Requirements" class="keyline-top section contain clearfix " data-reactid=".15i3bg6u96o.2.0.0.$1"><div class="space-bottom8 col6 pad2x prose clip" data-reactid=".15i3bg6u96o.2.0.0.$1.0"><h2 id="system-requirements">System Requirements</h2>
+<p>Please note that Arches has been developed for modern browsers. It supports:</p>
+<ul>
+<li>Firefox</li>
+<li>Chrome</li>
+<li>Safari</li>
+<li>Opera</li>
+<li>Internet Explorer 10 or higher.</li>
+</ul>
+<p>Minimum system requirements:</p>
+<ul>
+<li>At least 4GB of RAM for evaluation and testing, or 8 to 16GB for production.</li>
+<li>10GB minimum to install the code base and test dataset, but disk space requirements will vary greatly depending on the size of your dataset</li>
+</ul>
+</div></div><div data-title="Dependencies" class="keyline-top section contain clearfix " data-reactid=".15i3bg6u96o.2.0.0.$2"><div class="space-bottom8 col6 pad2x prose clip" data-reactid=".15i3bg6u96o.2.0.0.$2.0"><h2 id="dependencies">Dependencies</h2>
+<ul>
+<li>PostgreSQL relational database (version 9.3)</li>
+<li>PostGIS (version 2.x) spatial module for PostgreSQL</li>
+<li>Python (version 2.7.6 - there seem to be issues with later versions of python)</li>
+<li>GEOS</li>
+</ul>
+</div></div><div data-title="Installing Arches" class="keyline-top section contain clearfix " data-reactid=".15i3bg6u96o.2.0.0.$3"><div class="space-bottom8 col6 pad2x prose clip" data-reactid=".15i3bg6u96o.2.0.0.$3.0"><h2 id="installing-arches">Installing Arches</h2>
+<p>For the installation process you will need <strong>pip</strong> installed on your system. If you don&#x27;t already have it, you can find instructions to install it here: <a href="https://pip.pypa.io/en/latest/installing.html">https://pip.pypa.io/en/latest/installing.html</a></p>
+<p>If you have installed the dependencies, you&#x27;re ready to install Arches.</p>
+<ol>
+<li>
+<p>Create the Arches Project folder:</p>
+<ul>
+<li>Create a folder called &#x27;Projects&#x27; (or some other meaningful name) on your system.  </li>
+</ul>
+</li>
+<li>
+<p>Install virtualenv:</p>
+<ul>
+<li>
+<p>Open a command prompt and type:</p>
+<pre><code>  $ pip install virtualenv==1.11.4
+</code></pre>
+</li>
+<li>
+<p>virtualenv creates a directory with it&#x27;s own installation of Python and Python executables.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Create the ENV folder:</p>
+<p>Navigate to your Projects directory (or wherever you named the root Arches folder) and create your virtual environment with the following command:</p>
+<pre><code>$ virtualenv ENV
+</code></pre>
+</li>
+<li>
+<p>Install Arches:</p>
+<ul>
+<li>
+<p>Activate your virtual environment with the following command:</p>
+<ul>
+<li>
+<p>On Linux (and other POSIX systems):</p>
+<pre><code>  $ source ENV/bin/activate
+</code></pre>
+</li>
+<li>
+<p>On Windows:</p>
+<pre><code>  \path to &#x27;Projects&#x27;\ENV\Scripts\activate
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>You should see the name of your virtual environment in parentheses proceeding your command prompt like so <code>(ENV)</code>:</p>
+<pre><code>  (ENV)$
+</code></pre>
+</li>
+</ul>
+<p>Install Arches (your virtual environment must be activated):</p>
+<pre><code>    (ENV)$ pip install arches
+</code></pre>
+</li>
+</ol>
+<p>That&#x27;s it, you&#x27;re done.  You should now have a folder structure that looks like this:</p>
+<pre><code>/Projects
+    /ENV
+</code></pre>
+</div></div><div data-title="Arches Applications" class="keyline-top section contain clearfix " data-reactid=".15i3bg6u96o.2.0.0.$4"><div class="space-bottom8 col6 pad2x prose clip" data-reactid=".15i3bg6u96o.2.0.0.$4.0"><h2 id="arches-applications">Arches Applications</h2>
+<p>Generally arches applications are installed in a folder directly under the Arches root folder.  You can install as many Arches applications as you like, and they&#x27;ll all use the same Arches framework and virtual environment.  A typical Arches application installation will therefore look something like this:</p>
+<pre><code>/Projects
+    /ENV (virtual environment where the Arches framework is installed)
+    /my_arches_app
+    /another_arches_app
+</code></pre>
+<p><strong>Note:</strong>
+If you want to install an existing Arches application, such as the Heritage Inventory Package (HIP), you should stop here and go to: <a href="http://arches-hip.readthedocs.org/en/latest/getting-started/#installation">http://arches-hip.readthedocs.org/en/latest/getting-started/#installation</a>.</p>
+</div></div><div data-title="Contributing" class="keyline-top section contain clearfix " data-reactid=".15i3bg6u96o.2.0.0.$5"><div class="space-bottom8 col6 pad2x prose clip" data-reactid=".15i3bg6u96o.2.0.0.$5.0"><h2 id="contributing">Contributing</h2>
+<p>Issue reports are encouraged.  <a href="http://polite.technology/reportabug.html">Please read this article</a> before reporting issues.</p>
+<p>Good guidelines on how to contribute can be found <a href="https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github">here</a>.</p>
+</div></div></div></div></div><div class="fixed-top space-left16" data-reactid=".15i3bg6u96o.3"><div class="events fill-light bottom-shadow pad1 col6 pin-topright  " data-reactid=".15i3bg6u96o.3.0"><div class="space-right1 small quiet inline" data-reactid=".15i3bg6u96o.3.0.0">Show examples in:</div><div class="rounded-toggle inline short" data-reactid=".15i3bg6u96o.3.0.1"><a class="strong active" data-reactid=".15i3bg6u96o.3.0.1.$cURL">cURL</a><a class="strong " data-reactid=".15i3bg6u96o.3.0.1.$CLI">CLI</a><a class="strong " data-reactid=".15i3bg6u96o.3.0.1.$Python">Python</a><a class="strong " data-reactid=".15i3bg6u96o.3.0.1.$JavaScript">JavaScript</a></div><div class="fr pad0" data-reactid=".15i3bg6u96o.3.0.2"><a title="Display as 1 column" style="cursor:pointer;" class="icon quiet caret-left pad0 fill-darken0 round" data-reactid=".15i3bg6u96o.3.0.2.0"></a></div></div></div><div class="fill-dark dark bottom-shadow fixed-top pad0 width16" data-reactid=".15i3bg6u96o.4"><a href="/" class="active space-top1 space-left1 pin-topleft icon round dark pad0 arches-logo" data-reactid=".15i3bg6u96o.4.0"></a><div class="strong small pad0
           
-          space-left4 line-height15" data-reactid=".1vshckzfp4w.4.1">Wobble API Documentation</div></div></div></div><!--STOP-->
+          space-left4 line-height15" data-reactid=".15i3bg6u96o.4.1">Arches Documentation</div></div></div></div><!--STOP-->
     <script src='bundle.js'></script>
   </body>
 </html>

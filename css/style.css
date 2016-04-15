@@ -149,3 +149,9 @@ body .prose blockquote {
   margin-left: 10px;
   vertical-align: middle;
 }
+
+.arches-logo {
+    background-image: url('../img/arches-logo.png');
+    background-size: 30px;
+    background-repeat: no-repeat;
+}
