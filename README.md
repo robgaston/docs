@@ -12,4 +12,4 @@ The `npm run build` command updates the arches submodule retrieving the latest d
 3. `npm run build`
 4. Add all, commit & push
 
-The `npm run deploy` runs the build command and then runs the git commands to add all, commit and push, updating the gh-pages static site.  It assumes that git is configured with write permissions to this repo.
+The `npm run deploy` command runs the build command and then runs the git commands to add all, commit and push, updating the gh-pages static site.  It assumes that git is configured with write permissions to this repo.
