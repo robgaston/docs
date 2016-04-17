@@ -8,7 +8,8 @@
     "test": "npm run test-unit && eslint src && npm run prerender -- /dev/null && rm -rf lib",
     "test-unit": "mocha --compilers js:babel-register test",
     "prerender": "babel src --out-dir lib && node lib/render.js",
-    "build": "git submodule update --remote && NODE_ENV=production browserify src/index.js | uglifyjs -c -m > bundle.js && npm run prerender -- index.html",
+    "get-content": "node custom/get-content.js",
+    "build": "git submodule update --remote && npm run get-content && NODE_ENV=production browserify src/index.js | uglifyjs -c -m > bundle.js && npm run prerender -- index.html",
     "deploy": "npm run build && git add . && git commit -a -m \"automated docs deploy\" && git push"
   },
   "browserify": {
@@ -31,7 +32,7 @@
     "babel-preset-react": "^6.3.13",
     "babel-preset-stage-0": "^6.3.13",
     "babelify": "^7.2.0",
-    "brfs": "^1.4.2",
+    "brfs": "^1.4.3",
     "browserify": "^13.0.0",
     "cssnano": "^3.4.0",
     "es6-promise": "^3.0.2",
@@ -43,6 +44,7 @@
     "isomorphic-fetch": "^2.2.0",
     "lodash.debounce": "^4.0.3",
     "minifyify": "^7.1.0",
+    "mustache": "^2.2.1",
     "react": "^0.14.6",
     "react-dom": "^0.14.6",
     "react-pure-render": "^1.0.2",
