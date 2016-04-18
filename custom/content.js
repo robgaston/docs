@@ -13,5 +13,6 @@ var docs = fs.readdirSync('./arches/docbox/');
 var content = '# Introduction\n#' + fs.readFileSync('./arches/README.md', 'utf8') + '\n';
 
 content += fs.readFileSync('./arches/docbox/001_data_model.md', 'utf8') + '\n';
+content += fs.readFileSync('./arches/docbox/002_glossary.md', 'utf8') + '\n';
 
 module.exports = content;
