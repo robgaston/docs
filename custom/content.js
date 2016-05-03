@@ -12,7 +12,11 @@ var fs = require('fs');
 var docs = fs.readdirSync('./arches/docbox/');
 var content = '# Introduction\n#' + fs.readFileSync('./arches/README.md', 'utf8') + '\n';
 
-content += fs.readFileSync('./arches/docbox/001_data_model.md', 'utf8') + '\n';
-content += fs.readFileSync('./arches/docbox/002_glossary.md', 'utf8') + '\n';
+content += fs.readFileSync('./arches/docbox/001_system_design.md', 'utf8') + '\n';
+content += fs.readFileSync('./arches/docbox/002_installation.md', 'utf8') + '\n';
+content += fs.readFileSync('./arches/docbox/003_configuration_customization.md', 'utf8') + '\n';
+content += fs.readFileSync('./arches/docbox/004_api.md', 'utf8') + '\n';
+content += fs.readFileSync('./arches/docbox/005_user_guides.md', 'utf8') + '\n';
+content += fs.readFileSync('./arches/docbox/006_glossary.md', 'utf8') + '\n';
 
 module.exports = content;
